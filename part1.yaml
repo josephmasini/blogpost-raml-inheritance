@@ -1,0 +1,35 @@
+types:
+
+  Car:
+    properties:
+      vin: string
+      make: string
+      model: string
+      year: integer
+      seatCapacity: integer
+      roofRack: boolean
+
+  Truck:
+    properties:
+      vin: string
+      make: string
+      model: string
+      year: integer
+      seatCapacity: integer
+      haulWeight: integer
+
+  Motorcycle:
+    properties:
+      vin: string
+      make: string
+      model: string
+      year: integer
+      sidecar: boolean
+
+/vehicles:
+  post:
+    description: Create a new vehicle.
+    body:
+      application/json:
+        type: Car | Truck | Motorcycle
+    responses: # the response is the URI of the created entity
