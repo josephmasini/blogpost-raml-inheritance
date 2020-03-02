@@ -1,0 +1,33 @@
+types:
+
+  Vehicle: ...
+
+  RegisteredVehicle: ...
+
+  Truck: ...
+
+  Motorcycle: ...
+
+  Car: ...
+
+  RV: ...
+
+  ConcreteVehicle:
+    type: Car | Truck | Motorcycle | RV
+
+  RegisteredConcreteVehicle:
+    type: [RegisteredVehicle, ConcreteVehicle]
+
+/vehicles:
+  post:
+    body:
+      application/json:
+        type: ConcreteVehicle
+    responses: # the response is the URI of the created entity
+
+  /{vehicle_id}:
+    get:
+      Responses:
+        200:
+          application/json:
+            type: RegisteredConcreteVehicle
