@@ -1,0 +1,35 @@
+types:
+
+  Vehicle: ...
+
+  RegisteredVehicle:
+    properties:
+      id: number
+      registeredDate: datetime
+      lastServiceDate?: datetime
+      licensePlate: string
+
+  Car: ...
+
+  RegisteredCar:
+    type: [Car, RegisteredVehicle]
+
+  Truck: ...
+
+  RegisteredTruck:
+    type: [Truck, RegisteredVehicle]
+
+  Motorcycle: ...
+
+  RegisteredMotorcyle:
+    type: [Truck, RegisteredVehicle]
+
+/vehicles: ...
+
+  /{vehicle_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: RegisteredCar | RegisteredTruck | RegisteredMotorcyle
