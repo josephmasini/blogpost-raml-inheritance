@@ -1,0 +1,27 @@
+types:
+
+  Vehicle:
+    properties:
+      vin: string
+      make: string
+      model: string
+      year: integer
+
+  Car:
+    type: Vehicle
+    properties:
+      seatCapacity: integer
+      roofRack: boolean
+
+  Truck:
+    type: Vehicle
+    properties:
+      seatCapacity: integer
+      haulWeight: integer
+
+  Motorcycle:
+    type: Vehicle
+    properties:
+      sidecar: boolean
+
+/vehicles: ...
