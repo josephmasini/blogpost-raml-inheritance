@@ -1,0 +1,42 @@
+types:
+
+  Vehicle: ...
+
+  RegisteredVehicle: ...
+
+  Car: ...
+
+  RegisteredCar: ...
+
+  Truck: ...
+
+  RegisteredTruck: ...
+
+  Motorcycle: ...
+
+  RegisteredMotorcyle: ...
+
+  RV:
+    type: Vehicle
+    properties:
+      beds: integer
+      heatingSystem?:
+        enum: [gas, electric]
+
+  RegisteredRV:
+    type: [RV, RegisteredVehicle]
+
+/vehicles:
+  post:
+    body:
+      application/json:
+        type: Car | Truck | Motorcycle | RV
+    responses: # the response is the URI of the created entity
+
+
+  /{vehicle_id}:
+    get:
+      Responses:
+        200:
+          application/json:
+            type: RegisteredCar | RegisteredTruck | RegisteredMotorcyle | RegisteredRV
